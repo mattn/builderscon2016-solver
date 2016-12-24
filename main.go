@@ -221,24 +221,6 @@ func generate(prefix string, ci int, cs []node, bi int, br [10]group, max int, c
 	}
 }
 
-func main1() {
-	r, err := parse(`[PUPPET][QA](.)\1[SERVERSPEC][W3C]`)
-	//r, err := parse(`[REDIS][AWS][JETTY]+`)
-	//r, err := parse(`\d([VIM]([MARKDOWN]))\1[EMACS]\2`)
-	//r, err := parse(`(GOO|BAR)`)
-	//r, err := parse(`(GO|RUBY|PERL|PYTHON)[MQTT][LINUX]+`)
-	//r, err := parse(`[TE]R`)
-	//r, err := parse(`[TE]RR[^AFORM][SLACK][NODEJS]`)
-	if err != nil {
-		log.Fatal(err)
-	}
-	fmt.Println(r)
-	var br [10]group
-	generate("", 0, r, 0, br, 6, func(s string) {
-		println("found", s)
-	})
-}
-
 func main() {
 	f, err := os.Open("crossword.txt")
 	if err != nil {
